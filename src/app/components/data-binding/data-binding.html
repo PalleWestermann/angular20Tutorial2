@@ -1,0 +1,57 @@
+<table style="width: 100%;">
+  <tr>
+    <td>
+      <h1>One-Way Data Binding</h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>string interpolation</h3>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      {{courseName}}
+    </td>
+    <td>
+      {{productPrice}}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="text" value="{{courseName}}">
+    </td>
+  </tr>
+  <tr>
+    <h3>Property Binding</h3>
+
+     <td>
+      <input type="text" [maxLength]="maxLength" value="{{courseName}}">
+    </td>
+    <td>
+      <p [class]="myClassName">This is sample paragraph</p>
+    </td>
+  </tr>
+  <tr>
+    <td><h3>Event Binding</h3></td>
+    <td><button (click)="showWelcomeMessage()"> Show Message</button></td>
+    <td>
+      <select (change)="onCityChange()">
+        <option value="">Pune</option>
+        <option value="">Nagpur</option>
+        <option value="">Mumbai</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h1>Two-Way Data Binding -> ngModel (from FormsModule)</h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="text" [(ngModel)]="courseName">
+    </td>
+  </tr>
+</table>
