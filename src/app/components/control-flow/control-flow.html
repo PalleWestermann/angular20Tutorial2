@@ -1,1 +1,72 @@
-<p>control-flow works!</p>
+<table>
+  <tr>
+    <td>
+      @if (isParaVisible)
+      {
+        <p>This is Sample Para</p>
+      } @else {
+        <h1>isParaVisible has False value</h1>
+      }
+    </td>
+    <td>
+      <button (click)="showP()">Show P</button>
+    </td>
+    <td>
+      <button (click)="hideP()">Hide P</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      @if (startMonthName == 'jan') {
+        <span>January</span>
+      } @else if (startMonthName == 'feb') {
+        <span>February</span>
+      } @else {
+        <span>Wrong Input</span>
+      }
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="startMonthName">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+        @for ( city of cityList; track $index) {
+           <li>{{city}}</li>
+        }
+      </ul>
+    </td>
+    <td>
+      <select name="" id="">
+        @for (item of cityList; track $index) {
+          <option value="">{{item}}</option>
+        }
+      </select>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sr No</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of studentList; track $index) {
+       <tr>
+      <td>{{$index + 1}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.city}}</td>
+      <td>{{item.isActive}}</td>
+      </tr>
+    }
+
+  </tbody>
+</table>
