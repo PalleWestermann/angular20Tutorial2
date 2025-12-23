@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class User implements OnInit {
 
-  userList:any[] = [];
+  //userList:any[] = [];
+  userList= signal<any>(null);
 
   userObj: any = {
   "userId": 0,
@@ -28,7 +29,7 @@ export class User implements OnInit {
 
   getUsers() {
     this.http.get("https://api.freeprojectapi.com/api/GoalTracker/getAllUsers").subscribe((Res:any) => {
-      this.userList = Res;
+      this.userList.set(Res);
     });;
   }
 
