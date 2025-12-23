@@ -43,4 +43,31 @@ export class User implements OnInit {
       }}
     )
   }
+
+  onReset() {
+    this.userObj = {
+    "userId": 0,
+    "emailId": "",
+    "password": "",
+    "fullName": "",
+    "mobileNo": ""
+    };
+  }
+
+  onUpdateUser() {
+    this.userObj.createdDate = new Date();
+    this.http.put("https://api.freeprojectapi.com/api/GoalTracker/updateUser?id=" + this.userObj.userId, this.userObj).subscribe({
+      next: ()=> {
+        alert("User Updated Successfully");
+        this.getUsers();
+      },
+      error:(error)=> {
+        alert("Error -" + error.error);
+      }
+    })
+  }
+
+  onEdit(item: any) {
+    this.userObj = item;
+  }
 }
