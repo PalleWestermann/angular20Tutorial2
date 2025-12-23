@@ -67,6 +67,21 @@ export class User implements OnInit {
     })
   }
 
+  onDeleteUser(id: number) {
+    const isDelete = confirm("Are you sure you want to delete?");
+    if (isDelete){
+    this.http.delete("https://api.freeprojectapi.com/api/GoalTracker/deleteUserById?id=" + id).subscribe({
+      next: () => {
+        alert("User Deleted Successfully");
+        this.getUsers();
+      },
+      error: (error) => {
+        alert("Error -" + error.error);
+      }
+    });
+    }
+  }
+
   onEdit(item: any) {
     this.userObj = item;
   }

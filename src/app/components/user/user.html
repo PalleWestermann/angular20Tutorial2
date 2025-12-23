@@ -26,7 +26,7 @@
               <td>{{item.password}}</td>
               <td>
                 <button class="btn btn-primary btn-sm"(click)="onEdit(item)">Edit</button>
-                <button class="btn btn-danger btn-sm">Delete</button>
+                <button class="btn btn-danger btn-sm" (click)="onDeleteUser(item.userId)">Delete</button>
               </td>
             </tr>
             }
